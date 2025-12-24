@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>〇〇就労継続支援事業所</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>〇〇就労継続支援事業所</h1>
+  <p>一人ひとりの「働きたい」を大切にします</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#about">事業所概要</a></li>
+    <li><a href="#service">支援内容</a></li>
+    <li><a href="#flow">ご利用の流れ</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section id="about">
+    <h2>事業所概要</h2>
+    <table>
+      <tr><th>事業所名</th><td>〇〇就労継続支援事業所</td></tr>
+      <tr><th>運営法人</th><td>株式会社〇〇</td></tr>
+      <tr><th>サービス種別</th><td>就労継続支援（A型・B型）</td></tr>
+      <tr><th>所在地</th><td>〇〇県〇〇市〇〇町1-2-3</td></tr>
+      <tr><th>電話番号</th><td>00-0000-0000</td></tr>
+    </table>
+  </section>
+
+  <section id="service">
+    <h2>支援内容</h2>
+    <p>
+      当事業所では、障がいのある方が安心して働き続けられるよう、
+      一人ひとりの状況に合わせた就労支援を行っています。
+    </p>
+    <ul>
+      <li>軽作業・PC作業などの就労機会の提供</li>
+      <li>生活リズムの安定に向けたサポート</li>
+      <li>就労に必要なスキル習得支援</li>
+      <li>スタッフによる日常的な相談・支援</li>
+    </ul>
+  </section>
+
+  <section id="flow">
+    <h2>ご利用の流れ</h2>
+    <ol>
+      <li>お問い合わせ・ご相談</li>
+      <li>見学・体験利用</li>
+      <li>市区町村での手続き</li>
+      <li>利用開始</li>
+    </ol>
+    <p>
+      ご不明点はお気軽にお問い合わせください。
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <p>
+      見学・体験利用のご相談は、下記までご連絡ください。
+    </p>
+    <p>
+      電話：00-0000-0000<br>
+      メール：info@example.com
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 〇〇就労継続支援事業所</p>
+</footer>
+
+</body>
+</html>
