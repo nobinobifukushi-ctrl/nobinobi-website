@@ -2,16 +2,16 @@
 body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     line-height: 1.8;
-    color: #444; /* 少し柔らかい黒に */
+    color: #444;
     margin: 0;
     padding: 0;
-    background-color: #fffef0; /* 極めて薄いパステルイエロー */
+    background-color: #fffef0;
 }
 
 /* ヘッダー */
 header {
-    background-color: #dcedc8; /* パステル黄緑（メロン） */
-    color: #556b2f; /* 濃いめのオリーブ色 */
+    background-color: #dcedc8;
+    color: #556b2f;
     padding: 60px 20px;
     text-align: center;
 }
@@ -28,7 +28,7 @@ header p {
 
 /* ナビゲーション */
 nav {
-    background-color: #556b2f; /* ヘッダーの文字色と合わせて統一感 */
+    background-color: #556b2f;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -54,6 +54,16 @@ nav ul li a:hover {
     background-color: #689f38;
 }
 
+/* メインビジュアル（画像の設定） */
+.main-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 200px; /* 画像がない時も領域を確保 */
+    background-color: #e0e0e0; /* 読み込み前の色 */
+    object-fit: cover;
+}
+
 /* メインコンテンツ */
 main {
     max-width: 900px;
@@ -69,10 +79,10 @@ section {
 }
 
 h2 {
-    border-bottom: 3px solid #f0f4c3; /* 薄いパステルイエロー */
+    border-bottom: 3px solid #f0f4c3;
     padding-bottom: 10px;
     margin-bottom: 25px;
-    color: #689f38; /* 優しい黄緑 */
+    color: #689f38;
     position: relative;
     padding-left: 15px;
 }
@@ -84,11 +94,11 @@ h2::before {
     top: 0;
     width: 6px;
     height: 100%;
-    background-color: #8bc34a; /* アクセントの緑 */
+    background-color: #8bc34a;
     border-radius: 3px;
 }
 
-/* テーブル（事業所概要 & 比較表） */
+/* テーブル */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -102,11 +112,11 @@ table th, table td {
 }
 
 table th {
-    background-color: #f9fbe7; /* 非常に薄い黄色 */
+    background-color: #f9fbe7;
     width: 30%;
 }
 
-/* 比較表の特殊スタイル */
+/* 比較表 */
 .table-wrapper {
     overflow-x: auto;
 }
@@ -114,12 +124,12 @@ table th {
     border: 2px solid #dcedc8;
 }
 .comparison-table thead th {
-    background-color: #aed581; /* 優しい黄緑 */
+    background-color: #aed581;
     color: white;
     text-align: center;
 }
 
-/* ご利用の流れ（ステップ形式） */
+/* ご利用の流れ */
 .flow-container {
     display: flex;
     justify-content: space-between;
@@ -136,7 +146,7 @@ table th {
 }
 .flow-item span {
     display: inline-block;
-    background: #c5e1a5; /* パステル黄緑 */
+    background: #c5e1a5;
     color: #556b2f;
     width: 35px;
     height: 35px;
@@ -146,10 +156,10 @@ table th {
     font-weight: bold;
 }
 
-/* FAQのスタイル */
+/* FAQ */
 .faq-item {
     margin-bottom: 20px;
-    border-left: 5px solid #dce775; /* パステルイエローグリーン */
+    border-left: 5px solid #dce775;
     background-color: #fafafa;
     padding: 20px;
     border-radius: 0 10px 10px 0;
@@ -160,7 +170,7 @@ table th {
     margin-bottom: 5px;
 }
 
-/* マップのスタイル */
+/* マップ */
 .map-container {
     margin-top: 20px;
     border: 5px solid #ffffff;
@@ -170,7 +180,7 @@ table th {
     line-height: 0;
 }
 
-/* お問い合わせセクション */
+/* お問い合わせ */
 #contact {
     background-color: #f1f8e9;
     padding: 40px;
@@ -197,7 +207,7 @@ table th {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-.btn-tel { background-color: #fff176; color: #5d4037 !important; } /* パステルイエロー */
+.btn-tel { background-color: #fff176; color: #5d4037 !important; }
 .btn-mail { background-color: #aed581; }
 
 /* フッター */
@@ -209,7 +219,7 @@ footer {
     margin-top: 50px;
 }
 
-/* レスポンシブ対応 */
+/* レスポンシブ */
 @media (max-width: 600px) {
     nav ul { flex-direction: column; }
     table th, table td { display: block; width: 100%; }
