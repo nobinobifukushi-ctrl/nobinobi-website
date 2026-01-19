@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>就労継続支援B型事業所 のびのび</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,92 +16,87 @@
 <nav>
   <ul>
     <li><a href="#about">事業所概要</a></li>
-    <li><a href="#service">支援内容</a></li>
-    <li><a href="#flow">ご利用の流れ</a></li>
-    <li><a href="#access">アクセス</a></li>
+    <li><a href="#service">作業内容</a></li>
+    <li><a href="#schedule">一日の流れ</a></li>
+    <li><a href="#lunch">お食事</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
 </nav>
 
-<div class="main-visual" style="max-width: 900px; margin: 20px auto; padding: 0 20px;">
-  <img src="1.jpeg" alt="事業所の外観">
+<div class="main-visual">
+  <img src="images/1.jpeg" alt="事業所の外観" onerror="this.src='https://placehold.jp/24/689f38/ffffff/900x500.png?text=ここに画像が表示されます（imagesフォルダ内の1.jpeg）'">
 </div>
 
 <main>
   <section id="about">
     <h2>事業所概要</h2>
     <table>
-      <tr><th>事業所名</th><td>のびのび</td></tr>
+      <tr><th>事業所名</th><td>のび de のび（のびのび）</td></tr>
       <tr><th>運営法人</th><td>株式会社オニブチワインダー</td></tr>
-      <tr><th>サービス種別</th><td>就労継続支援B型</td></tr>
       <tr><th>所在地</th><td>岐阜県羽島郡笠松町円城寺上川田894-1</td></tr>
       <tr><th>電話番号</th><td>058-325-8795</td></tr>
     </table>
   </section>
 
-  <section id="comparison">
-    <h2>A型とB型の違い</h2>
-    <div class="table-wrapper">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>項目</th>
-            <th>A型（雇用型）</th>
-            <th>B型（非雇用型）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th>雇用契約</th><td>あり</td><td>なし</td></tr>
-          <tr><th>対象</th><td>一般企業での就職が困難な方</td><td>A型での勤務が困難な方など</td></tr>
-          <tr><th>主な報酬</th><td>最低賃金以上の給与</td><td>工賃（作業報酬）</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
   <section id="service">
-    <h2>支援内容</h2>
-    <ul>
-      <li>軽作業などの就労機会の提供</li>
-      <li>生活リズムの安定に向けたサポート</li>
-      <li>就労に必要なスキル習得</li>
-      <li>日常的な相談</li>
-    </ul>
-  </section>
-
-  <section id="flow">
-    <h2>ご利用の流れ</h2>
-    <div class="flow-container">
-      <div class="flow-item"><span>1</span><p>お問い合わせ</p></div>
-      <div class="flow-item"><span>2</span><p>見学・体験</p></div>
-      <div class="flow-item"><span>3</span><p>受給者証の発行手続き</p></div>
-      <div class="flow-item"><span>4</span><p>利用開始</p></div>
+    <h2>作業内容のご紹介</h2>
+    <div class="work-grid">
+      <div class="work-card">
+        <h3>軽作業</h3>
+        <p>箱折り、シール貼り、袋詰めなど、手先を使ったコツコツ進めるお仕事です。</p>
+      </div>
+      <div class="work-card">
+        <h3>ハンドメイド</h3>
+        <p>季節に合わせた雑貨製作など、感性を活かしたモノづくりを行っています。</p>
+      </div>
     </div>
   </section>
 
-  <section id="faq">
-    <h2>よくある質問</h2>
-    <div class="faq-item">
-      <p class="question">Q. 週に何回から通えますか？</p>
-      <p class="answer">A. ご本人の体調に合わせて週1日からでも相談可能です。徐々に日数を増やしていくこともできます。</p>
-    </div>
-    <div class="faq-item">
-      <p class="question">Q. 送迎はありますか？</p>
-      <p class="answer">A. はい、無料送迎を行っております。詳しくはお問い合わせください。</p>
+  <section id="schedule">
+    <h2>一日の流れ</h2>
+    <div class="timeline">
+      <div class="time-block">
+        <span class="time">10:00</span>
+        <span class="event">朝礼・作業開始（それぞれのペースでスタート）</span>
+      </div>
+      <div class="time-block">
+        <span class="time">12:00</span>
+        <span class="event">お昼休み（温かいお食事タイム）</span>
+      </div>
+      <div class="time-block">
+        <span class="time">13:00</span>
+        <span class="event">午後の作業</span>
+      </div>
+      <div class="time-block">
+        <span class="time">15:00</span>
+        <span class="event">清掃・終礼・片付けをして帰宅</span>
+      </div>
     </div>
   </section>
 
-  <section id="access">
-    <h2>アクセス</h2>
-    <p>住所：岐阜県羽島郡笠松町円城寺上川田894-1</p>
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d813.3055741313298!2d136.78606896964803!3d35.374942191804486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003a90001a3c387%3A0x8200bfe0a70c48bd!2z5bCx5Yq057aZ57aa5pSv5o-0QuWeiyDjga7jgbPjga7jgbM!5e0!3m2!1sja!2sjp!4v1768803822365!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section id="lunch">
+    <h2>お食事について</h2>
+    <div class="lunch-info">
+      <p>「のびのび」では、栄養バランスを考えた温かい手作りランチを提供しています。</p>
+      <p class="lunch-price">1食：300円（※詳しくはお問い合わせください）</p>
+    </div>
+  </section>
+
+  <section id="news">
+    <h2>のびのび通信</h2>
+    <div class="news-item">
+      <span class="date">2024.05.20</span>
+      <p>事業所の周りにお花を植えました！春を感じる毎日です。</p>
+    </div>
+    <div class="news-item">
+      <span class="date">2024.05.10</span>
+      <p>新しい軽作業の依頼が入りました。みんなで協力して進めています。</p>
     </div>
   </section>
 
   <section id="contact">
-    <h2>お問い合わせ</h2>
-    <p>見学・体験利用のご相談は、お気軽にご連絡ください。</p>
+    <h2>お問い合わせ・見学予約</h2>
+    <p>まずは実際の雰囲気を見に来てみませんか？<br>ご本人・ご家族・相談員様からのお問い合わせをお待ちしております。</p>
     <div class="contact-buttons">
       <a href="tel:058-325-8795" class="btn btn-tel">📞 電話で相談する</a>
       <a href="mailto:info@example.com" class="btn btn-mail">✉️ メールで相談する</a>
@@ -109,12 +105,8 @@
 </main>
 
 <footer>
-  <p>© ㈱オニブチワインダー</p>
+  <p>© 株式会社オニブチワインダー</p>
 </footer>
 
 </body>
 </html>
-
-
-
-
