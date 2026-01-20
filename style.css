@@ -169,6 +169,25 @@ table td small { display: block; color: #777; font-size: 0.85rem; margin-top: 5p
 .time-block::before { content: ""; position: absolute; left: -41px; top: 8px; width: 20px; height: 20px; background: white; border: 4px solid var(--main-green); border-radius: 50%; }
 .time { font-weight: bold; color: var(--main-green); font-size: 1.1rem; display: block; }
 
+/* --- 【追加】一日の流れ：休憩時間の強調デザイン --- */
+.time-block.break-time {
+  background: #fff8e1; /* 休憩用の薄いオレンジ */
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin-left: -15px;
+  border: 1px dashed #ffd54f;
+}
+
+.time-block.break-time .time,
+.time-block.break-time .event {
+  color: #e65100 !important;
+}
+
+.time-block.break-time::before {
+  border-color: #ffd54f !important;
+  background-color: #ffd54f !important;
+}
+
 /* --- 利用までの流れ（横並びスタイル） --- */
 .step-container {
   display: flex;
