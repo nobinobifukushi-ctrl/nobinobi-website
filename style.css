@@ -7,9 +7,7 @@
   --light-gray: #f9fbf7;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   font-family: "Helvetica Neue", Arial, "Hiragino Sans", sans-serif;
@@ -21,220 +19,122 @@ body {
   position: relative;
 }
 
-/* --- 背景イラスト：自作の葉っぱを配置 --- */
+/* --- 背景イラスト --- */
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 500px;
-  height: 600px;
-  background: url('leaf-top.png') no-repeat;
-  background-position: top right;
-  background-size: contain;
-  opacity: 0.4;
-  z-index: -1;
-  pointer-events: none;
+  content: ""; position: fixed; top: 0; right: 0; width: 500px; height: 600px;
+  background: url('leaf-top.png') no-repeat; background-position: top right; background-size: contain;
+  opacity: 0.4; z-index: -1; pointer-events: none;
 }
-
 body::after {
-  content: "";
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 400px;
-  height: 400px;
-  background: url('leaf-bottom.png') no-repeat;
-  background-position: bottom left;
-  background-size: contain;
-  opacity: 0.3;
-  z-index: -1;
-  pointer-events: none;
+  content: ""; position: fixed; bottom: 0; left: 0; width: 400px; height: 400px;
+  background: url('leaf-bottom.png') no-repeat; background-position: bottom left; background-size: contain;
+  opacity: 0.3; z-index: -1; pointer-events: none;
 }
 
-/* --- ヘッダー --- */
-header {
-  background: transparent;
-  padding: 40px 20px;
-}
+/* --- ヘッダー・袋文字タイトル --- */
+header { background: transparent; padding: 40px 20px; }
+.header-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 30px; }
+.logo-area { flex-shrink: 0; }
+.site-logo { max-width: 220px; height: auto; display: block; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.02)); }
 
-.header-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center; 
-  gap: 30px;
-}
-
-.logo-area {
-  flex-shrink: 0;
-  position: relative;
-  background: transparent; 
-  padding: 0; 
-  border-radius: 0;
-}
-
-.site-logo {
-  max-width: 220px;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.02));
-}
-
-.title-area {
-  text-align: left;
-}
-
-header h1 { 
-  font-size: 2rem; 
+/* タイトルを白縁の袋文字にする */
+.outline-text {
+  font-size: 2.2rem;
   color: var(--main-green);
-  letter-spacing: 0.1em; 
   margin: 0;
+  text-shadow: 
+    2px 2px 0 #fff, -2px -2px 0 #fff,
+    2px -2px 0 #fff, -2px 2px 0 #fff,
+    0 4px 6px rgba(0,0,0,0.1);
 }
 
-header p { 
-  font-size: 1.1rem; 
-  color: #888; 
-  margin: 5px 0 0 0;
-}
-
-/* --- ナビゲーション --- */
+/* --- ナビゲーション（区切り線付き） --- */
 nav { 
-  background: rgba(255,255,255,0.95); 
-  position: sticky; 
-  top: 0; 
-  z-index: 100; 
-  border-bottom: 1px solid #eee; 
+  background: rgba(255,255,255,0.95); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eee;
 }
-
 nav ul { 
-  list-style: none; 
-  display: flex; 
-  justify-content: center; 
-  padding: 0; 
-  margin: 0; 
+  list-style: none; display: flex; justify-content: center; padding: 0; margin: 0;
 }
-
+nav ul li { display: flex; align-items: center; }
+nav ul li:not(:last-child)::after {
+  content: "|"; color: #ccc; margin: 0 10px; font-weight: normal;
+}
 nav ul li a { 
-  display: block; 
-  color: var(--main-green); 
-  padding: 20px; 
-  text-decoration: none; 
-  font-weight: bold; 
-  font-size: 0.9rem; 
-  transition: 0.3s; 
+  display: block; color: var(--main-green); padding: 15px 5px; text-decoration: none;
+  font-weight: bold; font-size: 0.85rem; transition: 0.3s;
 }
 nav ul li a:hover { color: var(--accent-yellow); }
 
-.main-visual { 
-  max-width: 1100px; 
-  margin: 0 auto; 
-  padding: 0 20px; 
-  margin-top: 20px;
-  margin-bottom: 40px; 
-}
-
-.main-visual img { 
-  width: 100%; 
-  height: auto;
-  display: block;
-  border-radius: 30px; 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-}
-
+/* --- メインコンテンツ --- */
 main { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-
-section { 
-  background: rgba(255, 255, 255, 0.92); 
-  padding: 60px 40px; 
-  border-radius: 30px; 
-  margin-bottom: 40px; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
-}
-
+section { background: rgba(255, 255, 255, 0.92); padding: 60px 40px; border-radius: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
 h2 { color: var(--main-green); font-size: 1.8rem; margin-bottom: 40px; position: relative; display: inline-block; }
 h2::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60%; height: 4px; background: var(--accent-yellow); border-radius: 2px; }
 
-table { width: 100%; border-collapse: collapse; }
-table th, table td { padding: 20px; border-bottom: 1px solid #eee; }
-table th { text-align: left; background: var(--soft-green); width: 30%; border-radius: 10px 0 0 10px; }
-table td small { display: block; color: #777; font-size: 0.85rem; margin-top: 5px; line-height: 1.4; }
+/* 作業内容の写真 */
+.work-main-img { margin-bottom: 30px; border-radius: 20px; overflow: hidden; }
+.work-main-img img { width: 100%; display: block; }
 
 .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 .work-card { background: var(--light-gray); padding: 30px; border-radius: 20px; border: 1px solid #eee; }
 .work-tag { background: var(--main-green); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; }
 
-/* 一日の流れの基本 */
+/* 工賃セクション */
+.wage-box { background: var(--soft-green); padding: 30px; border-radius: 20px; border-left: 8px solid var(--main-green); }
+.wage-list { list-style: none; padding: 0; margin: 20px 0; }
+.wage-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+.wage-list li::before { content: "✔"; color: var(--main-green); position: absolute; left: 0; font-weight: bold; }
+
+/* 一日の流れ（スリム＆ズレ修正済） */
 .timeline { border-left: 2px solid var(--soft-green); margin-left: 10px; padding-left: 30px; }
 .time-block { position: relative; margin-bottom: 25px; display: flex; flex-direction: column; justify-content: center; min-height: 40px; }
 .time-block::before { content: ""; position: absolute; left: -41px; top: 10px; width: 20px; height: 20px; background: white; border: 4px solid var(--main-green); border-radius: 50%; z-index: 1; }
-.time { font-weight: bold; color: var(--main-green); font-size: 1.1rem; display: block; line-height: 1.2; }
-.event { line-height: 1.2; }
+.time { font-weight: bold; color: var(--main-green); font-size: 1.1rem; }
+.time-block.break-time { background: #fff8e1; padding: 5px 15px; border-radius: 10px; border: 1px dashed #ffd54f; }
+.time-block.break-time .time, .time-block.break-time .event { color: #e65100 !important; }
+.time-block.break-time::before { border-color: #ffd54f !important; background-color: #ffd54f !important; left: -41px; }
 
-/* 休憩時間の調整：枠をスリムに、丸の位置をキープ */
-.time-block.break-time {
-  background: #fff8e1;
-  padding: 5px 15px; /* 上下を5pxに縮めてスリム化 */
-  border-radius: 10px;
-  margin-left: 0px; /* 左側の余白をなくして丸との距離を一定に */
-  border: 1px dashed #ffd54f;
-}
-
-.time-block.break-time .time,
-.time-block.break-time .event {
-  color: #e65100 !important;
-}
-
-.time-block.break-time::before {
-  border-color: #ffd54f !important;
-  background-color: #ffd54f !important;
-  left: -41px; /* 他の丸と同じ位置に固定 */
-}
-
-/* --- 利用までの流れ（横並びスタイル） --- */
-.step-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 20px;
-}
-.step-item {
-  flex: 1;
-  background: var(--light-gray);
-  padding: 25px 15px;
-  border-radius: 20px;
-  text-align: center;
-  border: 1px solid #eee;
-}
-.step-number { color: var(--main-green); font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; display: block; }
-.step-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--text-color); }
-.step-item p { font-size: 0.85rem; line-height: 1.5; margin: 0; color: #666; }
+/* 利用までの流れ */
+.step-container { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.step-item { flex: 1; background: var(--light-gray); padding: 25px 15px; border-radius: 20px; text-align: center; border: 1px solid #eee; }
+.step-number { color: var(--main-green); font-weight: bold; font-size: 1.2rem; }
 .step-arrow { font-size: 1.5rem; color: var(--main-green); font-weight: bold; }
 
-.lunch-container { display: flex; gap: 40px; align-items: center; }
+/* 食事・送迎 */
+.lunch-container { display: flex; gap: 40px; align-items: flex-start; }
 .lunch-img { flex: 1; }
 .lunch-img img { width: 100%; border-radius: 20px; }
 .lunch-text { flex: 1; }
+.lunch-text hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
 .lunch-price { font-size: 1.8rem; font-weight: bold; color: #f57f17; }
 
-.map-container { border-radius: 20px; overflow: hidden; border: 1px solid #eee; }
+/* FAQ */
+.faq-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+.question { font-weight: bold; color: var(--main-green); margin-bottom: 5px; }
 
+/* その他維持項目（テーブル・ボタン等） */
+table { width: 100%; border-collapse: collapse; }
+table th, table td { padding: 15px; border-bottom: 1px solid #eee; }
+table th { text-align: left; background: var(--soft-green); width: 30%; border-radius: 10px 0 0 10px; }
 .contact-buttons { display: flex; gap: 20px; justify-content: center; }
-.btn { flex: 1; max-width: 300px; padding: 20px; text-decoration: none; border-radius: 50px; font-weight: bold; text-align: center; color: white !important; transition: 0.3s; }
+.btn { flex: 1; max-width: 300px; padding: 20px; text-decoration: none; border-radius: 50px; font-weight: bold; text-align: center; color: white !important; }
 .btn-tel { background: var(--accent-yellow); color: #5d4037 !important; }
 .btn-mail { background: var(--main-green); }
 
+/* --- スマホ最適化（強化版） --- */
 @media (max-width: 768px) {
   .header-container { flex-direction: column; text-align: center; gap: 15px; }
-  .site-logo { max-width: 130px; } 
-  .title-area { text-align: center; }
-  header h1 { font-size: 1.6rem; }
+  .outline-text { font-size: 1.5rem; }
+  .site-logo { max-width: 140px; }
+  nav ul { flex-wrap: wrap; justify-content: space-around; }
+  nav ul li:not(:last-child)::after { display: none; }
+  nav ul li a { padding: 10px 8px; font-size: 0.75rem; }
   section { padding: 40px 20px; }
+  .step-container { flex-direction: column; }
+  .step-arrow { transform: rotate(90deg); margin: 10px 0; }
   .lunch-container { flex-direction: column; }
   .contact-buttons { flex-direction: column; }
   .btn { max-width: 100%; }
-  nav ul { justify-content: flex-start; overflow-x: auto; white-space: nowrap; }
 }
 
 footer { text-align: center; padding: 40px; background: white; color: #888; }
