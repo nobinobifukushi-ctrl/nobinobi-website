@@ -21,42 +21,42 @@ body {
   position: relative;
 }
 
-/* --- 【修正】背景イラスト（おしゃれな葉っぱ） --- */
-.leaf-top-right {
+/* --- 【更新】背景イラスト：自作の葉っぱを配置 --- */
+/* 右上：垂れ下がる葉っぱ (leaf-top.png) */
+body::before {
+  content: "";
   position: fixed;
   top: 0;
   right: 0;
-  width: 500px; /* サイズを大きく */
+  width: 500px;         /* 大きめの葉っぱに合わせてサイズを維持 */
   height: 600px;
-  /* 垂れ下がる葉っぱの透過画像 */
-  background: url('https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/leaf.svg') no-repeat;
+  background: url('leaf-top.png') no-repeat;
   background-position: top right;
-  background-size: 100%;
-  opacity: 0.05; /* 線画っぽく非常に薄く設定 */
+  background-size: contain;
+  opacity: 0.4;         /* 線画の薄さに合わせて調整。お好みで0.1〜0.6で変更してください */
   z-index: -1;
   pointer-events: none;
-  transform: rotate(-15deg) translate(50px, -50px);
 }
 
-/* 左下にも別の葉っぱを配置 */
+/* 左下：添える葉っぱ (leaf-bottom.png) */
 body::after {
   content: "";
   position: fixed;
-  bottom: -50px;
-  left: -50px;
-  width: 350px;
-  height: 350px;
-  background: url('https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/leaf.svg') no-repeat;
+  bottom: 0;
+  left: 0;
+  width: 400px;         /* 理想のイラストに合わせてサイズを調整 */
+  height: 400px;
+  background: url('leaf-bottom.png') no-repeat;
+  background-position: bottom left;
   background-size: contain;
-  opacity: 0.05;
+  opacity: 0.3;         /* 右上より少しだけ薄くして奥行きを出す */
   z-index: -1;
   pointer-events: none;
-  transform: rotate(160deg);
 }
 
 /* --- ヘッダー --- */
 header {
-  background: white;
+  background: transparent; /* 背景を透明にして葉っぱとロゴを馴染ませる */
   padding: 40px 20px;
 }
 
@@ -68,22 +68,22 @@ header {
   gap: 30px;
 }
 
-/* --- 【修正】ロゴエリア：背景に馴染ませる調整 --- */
+/* --- 【更新】ロゴエリア：背景に馴染ませる調整 --- */
 .logo-area {
   flex-shrink: 0;
   position: relative;
-  /* ロゴの背後に柔らかい光を敷いて馴染ませる */
-  background: radial-gradient(circle, var(--soft-green) 0%, rgba(255,255,255,0) 70%);
-  padding: 20px;
-  border-radius: 50%;
+  /* 透過ロゴを活かすため、背景のグラデーションや余計な装飾をリセット */
+  background: transparent; 
+  padding: 0; 
+  border-radius: 0;
 }
 
 .site-logo {
-  max-width: 180px; 
+  max-width: 220px;     /* 透過ロゴが映えるよう少しだけ大きく */
   height: auto;
   display: block;
-  /* 白背景で浮かないように微細な影を付与 */
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.03));
+  /* 背景と馴染むように、drop-shadowを最小限に */
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.02));
 }
 
 .title-area {
@@ -103,7 +103,7 @@ header p {
   margin: 5px 0 0 0;
 }
 
-/* --- ナビゲーション --- */
+/* --- ナビゲーション以降、変更なし（維持） --- */
 nav { 
   background: rgba(255,255,255,0.95); 
   position: sticky; 
@@ -131,7 +131,6 @@ nav ul li a {
 }
 nav ul li a:hover { color: var(--accent-yellow); }
 
-/* --- メインビジュアル --- */
 .main-visual { 
   max-width: 1100px; 
   margin: 0 auto; 
@@ -148,7 +147,6 @@ nav ul li a:hover { color: var(--accent-yellow); }
   box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
 }
 
-/* --- コンテンツエリア --- */
 main { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
 
 section { 
@@ -162,39 +160,32 @@ section {
 h2 { color: var(--main-green); font-size: 1.8rem; margin-bottom: 40px; position: relative; display: inline-block; }
 h2::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60%; height: 4px; background: var(--accent-yellow); border-radius: 2px; }
 
-/* --- テーブル --- */
 table { width: 100%; border-collapse: collapse; }
 table th, table td { padding: 20px; border-bottom: 1px solid #eee; }
 table th { text-align: left; background: var(--soft-green); width: 30%; border-radius: 10px 0 0 10px; }
 
-/* --- 作業内容カード --- */
 .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 .work-card { background: var(--light-gray); padding: 30px; border-radius: 20px; border: 1px solid #eee; }
 .work-tag { background: var(--main-green); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; }
 
-/* --- タイムライン --- */
 .timeline { border-left: 2px solid var(--soft-green); margin-left: 10px; padding-left: 30px; }
 .time-block { position: relative; margin-bottom: 25px; }
 .time-block::before { content: ""; position: absolute; left: -41px; top: 8px; width: 20px; height: 20px; background: white; border: 4px solid var(--main-green); border-radius: 50%; }
 .time { font-weight: bold; color: var(--main-green); font-size: 1.1rem; display: block; }
 
-/* --- お昼ご飯 --- */
 .lunch-container { display: flex; gap: 40px; align-items: center; }
 .lunch-img { flex: 1; }
 .lunch-img img { width: 100%; border-radius: 20px; }
 .lunch-text { flex: 1; }
 .lunch-price { font-size: 1.8rem; font-weight: bold; color: #f57f17; }
 
-/* --- 地図 --- */
 .map-container { border-radius: 20px; overflow: hidden; border: 1px solid #eee; }
 
-/* --- お問い合わせボタン --- */
 .contact-buttons { display: flex; gap: 20px; justify-content: center; }
 .btn { flex: 1; max-width: 300px; padding: 20px; text-decoration: none; border-radius: 50px; font-weight: bold; text-align: center; color: white !important; transition: 0.3s; }
 .btn-tel { background: var(--accent-yellow); color: #5d4037 !important; }
 .btn-mail { background: var(--main-green); }
 
-/* --- スマホ調整 --- */
 @media (max-width: 768px) {
   .header-container { flex-direction: column; text-align: center; gap: 15px; }
   .site-logo { max-width: 130px; } 
