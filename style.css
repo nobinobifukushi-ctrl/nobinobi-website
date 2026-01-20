@@ -22,30 +22,32 @@ body {
 }
 
 /* --- 背景イラスト（葉っぱ） --- */
+/* イラストを大きく、不透明度を 0.1 → 0.25 へ引き上げました */
 body::before {
   content: "";
   position: fixed;
-  top: -50px;
-  right: -50px;
-  width: 400px;
-  height: 400px;
+  top: -20px;
+  right: -20px;
+  width: 450px; 
+  height: 450px;
   background: url('https://www.transparenttextures.com/patterns/leaf.png') no-repeat;
   background-size: contain;
-  opacity: 0.1; /* 非常に薄く */
+  opacity: 0.25; 
   z-index: -1;
   pointer-events: none;
 }
 
+/* 左下のイラストも 0.07 → 0.18 へ引き上げました */
 body::after {
   content: "";
   position: fixed;
-  bottom: -50px;
-  left: -50px;
-  width: 350px;
-  height: 350px;
+  bottom: -30px;
+  left: -30px;
+  width: 400px;
+  height: 400px;
   background: url('https://www.transparenttextures.com/patterns/leaf.png') no-repeat;
   background-size: contain;
-  opacity: 0.07;
+  opacity: 0.18;
   z-index: -1;
   pointer-events: none;
   transform: rotate(180deg);
@@ -61,7 +63,7 @@ header {
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
-  align-items: center; /* 縦方向の中央揃え */
+  align-items: center; 
   gap: 30px;
 }
 
@@ -69,10 +71,12 @@ header {
   flex-shrink: 0;
 }
 
+/* ロゴのサイズを 120px → 180px に拡大しました */
 .site-logo {
-  max-width: 120px; /* ロゴのサイズ */
+  max-width: 180px; 
   height: auto;
   display: block;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.05));
 }
 
 .title-area {
@@ -186,6 +190,7 @@ table th { text-align: left; background: var(--soft-green); width: 30%; border-r
 /* --- スマホ調整 --- */
 @media (max-width: 768px) {
   .header-container { flex-direction: column; text-align: center; gap: 15px; }
+  .site-logo { max-width: 130px; } /* スマホでも少し大きく調整 */
   .title-area { text-align: center; }
   header h1 { font-size: 1.6rem; }
   section { padding: 40px 20px; }
