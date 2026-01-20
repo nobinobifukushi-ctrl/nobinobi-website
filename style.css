@@ -7,43 +7,120 @@
   --light-gray: #f9fbf7;
 }
 
+* {
+  box-sizing: border-box; /* サイズ計算を正しくする（ガタつき防止） */
+}
+
 body {
   font-family: "Helvetica Neue", Arial, "Hiragino Sans", sans-serif;
   line-height: 1.8;
   color: var(--text-color);
   margin: 0;
   background-color: var(--light-gray);
+  overflow-x: hidden; /* 画面右端の余白ガタつきを防止 */
 }
 
 /* --- ヘッダー --- */
 header {
   background: white;
   color: var(--main-green);
-  padding: 80px 20px;
+  padding: 60px 20px; /* 少し縮小 */
   text-align: center;
 }
 
 header h1 { font-size: 2.2rem; letter-spacing: 0.1em; margin-bottom: 10px; }
 header p { font-size: 1.1rem; color: #888; }
 
-nav { background: rgba(255,255,255,0.95); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eee; }
-nav ul { list-style: none; display: flex; justify-content: center; padding: 0; margin: 0; }
-nav ul li a { display: block; color: var(--main-green); padding: 20px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+/* --- ナビゲーション --- */
+nav { 
+  background: rgba(255,255,255,0.95); 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+  border-bottom: 1px solid #eee; 
+}
+
+nav ul { 
+  list-style: none; 
+  display: flex; 
+  justify-content: center; 
+  padding: 0; 
+  margin: 0; 
+}
+
+/* スマホでメニューがはみ出るのを防ぐ設定 */
+@media (max-width: 768px) {
+  nav ul {
+    justify-content: flex-start;
+    overflow-x: auto; /* 横スクロール可能に */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+nav ul li a { 
+  display: block; 
+  color: var(--main-green); 
+  padding: 20px; 
+  text-decoration: none; 
+  font-weight: bold; 
+  font-size: 0.9rem; 
+  transition: 0.3s; 
+}
 nav ul li a:hover { color: var(--accent-yellow); }
 
 /* --- メインビジュアル --- */
-.main-visual { max-width: 1100px; margin: 0 auto; padding: 0 20px; margin-top: -40px; }
-.main-visual img { width: 100%; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.main-visual { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 0 20px; 
+  /* margin-top: -40px; ←これが重なりの原因だったので削除 */
+  margin-bottom: 40px; 
+}
+
+.main-visual img { 
+  width: 100%; 
+  height: auto;
+  display: block; /* 下の要素との隙間をなくす */
+  border-radius: 30px; 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+}
 
 /* --- コンテンツエリア --- */
-main { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
-section { background: white; padding: 60px 40px; border-radius: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+main { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+section { 
+  background: white; 
+  padding: 60px 40px; 
+  border-radius: 30px; 
+  margin-bottom: 40px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
+}
+
 h2 { color: var(--main-green); font-size: 1.8rem; margin-bottom: 40px; position: relative; display: inline-block; }
 h2::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60%; height: 4px; background: var(--accent-yellow); border-radius: 2px; }
 
-/* --- テーブル --- */
+/* --- テーブル（スマホ対応） --- */
 table { width: 100%; border-collapse: collapse; }
 table th, table td { padding: 20px; border-bottom: 1px solid #eee; }
+
+@media (max-width: 600px) {
+  table th, table td {
+    display: block; /* 縦に並べる */
+    width: 100%;
+    border-bottom: none;
+  }
+  table th {
+    background: var(--soft-green);
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
+  }
+  table td {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+  }
+}
+
 table th { text-align: left; background: var(--soft-green); width: 30%; border-radius: 10px 0 0 10px; }
 
 /* --- 作業内容カード --- */
@@ -62,12 +139,13 @@ table th { text-align: left; background: var(--soft-green); width: 30%; border-r
 /* --- お昼ご飯 --- */
 .lunch-container { display: flex; gap: 40px; align-items: center; }
 .lunch-img { flex: 1; }
-.lunch-img img { width: 100%; border-radius: 20px; }
+.lunch-img img { width: 100%; border-radius: 20px; display: block; }
 .lunch-text { flex: 1; }
 .lunch-price { font-size: 1.8rem; font-weight: bold; color: #f57f17; margin-top: 10px; }
 
 /* --- 地図 --- */
-.map-container { border-radius: 20px; overflow: hidden; border: 1px solid #eee; }
+.map-container { border-radius: 20px; overflow: hidden; border: 1px solid #eee; line-height: 0; }
+.map-container iframe { width: 100%; height: 300px; border: 0; }
 
 /* --- お問い合わせボタン --- */
 .contact-buttons { display: flex; gap: 20px; justify-content: center; }
@@ -76,11 +154,25 @@ table th { text-align: left; background: var(--soft-green); width: 30%; border-r
 .btn-mail { background: var(--main-green); color: white !important; }
 .btn:hover { opacity: 0.8; transform: scale(1.05); }
 
-/* --- スマホ調整 --- */
+/* --- スマホ調整（最終） --- */
 @media (max-width: 768px) {
-  section { padding: 40px 20px; }
-  .lunch-container { flex-direction: column; }
-  .contact-buttons { flex-direction: column; }
-  .btn { max-width: 100%; }
-  nav ul li a { padding: 15px 10px; font-size: 0.8rem; }
+  header { padding: 40px 20px; }
+  header h1 { font-size: 1.6rem; }
+  
+  main { margin: 20px auto; }
+  section { padding: 30px 20px; border-radius: 20px; }
+  
+  .lunch-container { flex-direction: column; gap: 20px; }
+  .contact-buttons { flex-direction: column; align-items: center; }
+  .btn { width: 100%; max-width: 100%; }
+  
+  nav ul li a { padding: 15px 12px; font-size: 0.85rem; }
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: white;
+  color: #888;
+  font-size: 0.9rem;
 }
