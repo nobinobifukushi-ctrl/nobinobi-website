@@ -31,38 +31,30 @@ body::after {
   opacity: 0.3; z-index: -1; pointer-events: none;
 }
 
-/* --- ヘッダー・袋文字タイトル --- */
-header { background: transparent; padding: 40px 20px; }
-.header-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 30px; }
+/* --- ヘッダー（拡大調整） --- */
+header { background: transparent; padding: 60px 20px; } /* 40pxから60pxへ拡大 */
+.header-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 40px; }
 .logo-area { flex-shrink: 0; }
-.site-logo { max-width: 220px; height: auto; display: block; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.02)); }
+.site-logo { max-width: 260px; height: auto; display: block; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.02)); } /* ロゴを大きく */
 
-/* タイトルを白縁の袋文字にする */
 .outline-text {
-  font-size: 2.2rem;
+  font-size: 2.6rem; /* 2.2remから拡大 */
   color: var(--main-green);
   margin: 0;
   text-shadow: 
     2px 2px 0 #fff, -2px -2px 0 #fff,
     2px -2px 0 #fff, -2px 2px 0 #fff,
-    0 4px 6px rgba(0,0,0,0.1);
+    0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* --- ナビゲーション（区切り線付き） --- */
+/* --- ナビゲーション --- */
 nav { 
   background: rgba(255,255,255,0.95); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eee;
 }
-nav ul { 
-  list-style: none; display: flex; justify-content: center; padding: 0; margin: 0;
-}
+nav ul { list-style: none; display: flex; justify-content: center; padding: 0; margin: 0; }
 nav ul li { display: flex; align-items: center; }
-nav ul li:not(:last-child)::after {
-  content: "|"; color: #ccc; margin: 0 10px; font-weight: normal;
-}
-nav ul li a { 
-  display: block; color: var(--main-green); padding: 15px 5px; text-decoration: none;
-  font-weight: bold; font-size: 0.85rem; transition: 0.3s;
-}
+nav ul li:not(:last-child)::after { content: "|"; color: #ccc; margin: 0 10px; font-weight: normal; }
+nav ul li a { display: block; color: var(--main-green); padding: 20px 5px; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: 0.3s; }
 nav ul li a:hover { color: var(--accent-yellow); }
 
 /* --- メインコンテンツ --- */
@@ -71,51 +63,36 @@ section { background: rgba(255, 255, 255, 0.92); padding: 60px 40px; border-radi
 h2 { color: var(--main-green); font-size: 1.8rem; margin-bottom: 40px; position: relative; display: inline-block; }
 h2::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60%; height: 4px; background: var(--accent-yellow); border-radius: 2px; }
 
-/* 作業内容の写真 */
+/* メインビジュアル中央寄せ */
+.main-visual { max-width: 1100px; margin: 0 auto; text-align: center; }
+.main-visual img { width: 100%; border-radius: 30px; }
+
+/* 作業内容・工賃など */
 .work-main-img { margin-bottom: 30px; border-radius: 20px; overflow: hidden; }
 .work-main-img img { width: 100%; display: block; }
-
 .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 .work-card { background: var(--light-gray); padding: 30px; border-radius: 20px; border: 1px solid #eee; }
 .work-tag { background: var(--main-green); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; }
 
-/* 工賃セクション */
 .wage-box { background: var(--soft-green); padding: 30px; border-radius: 20px; border-left: 8px solid var(--main-green); }
 .wage-list { list-style: none; padding: 0; margin: 20px 0; }
 .wage-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
 .wage-list li::before { content: "✔"; color: var(--main-green); position: absolute; left: 0; font-weight: bold; }
 
-/* 一日の流れ（スリム＆ズレ修正済） */
+/* 一日の流れ */
 .timeline { border-left: 2px solid var(--soft-green); margin-left: 10px; padding-left: 30px; }
 .time-block { position: relative; margin-bottom: 25px; display: flex; flex-direction: column; justify-content: center; min-height: 40px; }
 .time-block::before { content: ""; position: absolute; left: -41px; top: 10px; width: 20px; height: 20px; background: white; border: 4px solid var(--main-green); border-radius: 50%; z-index: 1; }
 .time { font-weight: bold; color: var(--main-green); font-size: 1.1rem; }
 .time-block.break-time { background: #fff8e1; padding: 5px 15px; border-radius: 10px; border: 1px dashed #ffd54f; }
 .time-block.break-time .time, .time-block.break-time .event { color: #e65100 !important; }
-.time-block.break-time::before { border-color: #ffd54f !important; background-color: #ffd54f !important; left: -41px; }
 
-/* 利用までの流れ */
-.step-container { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.step-item { flex: 1; background: var(--light-gray); padding: 25px 15px; border-radius: 20px; text-align: center; border: 1px solid #eee; }
-.step-number { color: var(--main-green); font-weight: bold; font-size: 1.2rem; }
-.step-arrow { font-size: 1.5rem; color: var(--main-green); font-weight: bold; }
-
-/* 食事・送迎 */
-.lunch-container { display: flex; gap: 40px; align-items: flex-start; }
-.lunch-img { flex: 1; }
-.lunch-img img { width: 100%; border-radius: 20px; }
-.lunch-text { flex: 1; }
-.lunch-text hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
-.lunch-price { font-size: 1.8rem; font-weight: bold; color: #f57f17; }
-
-/* FAQ */
-.faq-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
-.question { font-weight: bold; color: var(--main-green); margin-bottom: 5px; }
-
-/* その他維持項目（テーブル・ボタン等） */
-table { width: 100%; border-collapse: collapse; }
+/* 表の基本スタイル */
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
 table th, table td { padding: 15px; border-bottom: 1px solid #eee; }
-table th { text-align: left; background: var(--soft-green); width: 30%; border-radius: 10px 0 0 10px; }
+table th { text-align: left; background: var(--soft-green); width: 30%; }
+
+/* お問い合わせボタン */
 .contact-buttons { display: flex; gap: 20px; justify-content: center; }
 .btn { flex: 1; max-width: 300px; padding: 20px; text-decoration: none; border-radius: 50px; font-weight: bold; text-align: center; color: white !important; }
 .btn-tel { background: var(--accent-yellow); color: #5d4037 !important; }
@@ -123,17 +100,21 @@ table th { text-align: left; background: var(--soft-green); width: 30%; border-r
 
 /* --- スマホ最適化（強化版） --- */
 @media (max-width: 768px) {
-  .header-container { flex-direction: column; text-align: center; gap: 15px; }
-  .outline-text { font-size: 1.5rem; }
-  .site-logo { max-width: 140px; }
-  nav ul { flex-wrap: wrap; justify-content: space-around; }
+  header { padding: 40px 10px; }
+  .header-container { flex-direction: column; text-align: center; gap: 20px; }
+  .outline-text { font-size: 1.8rem; }
+  .site-logo { max-width: 180px; }
+  nav ul { flex-wrap: wrap; }
   nav ul li:not(:last-child)::after { display: none; }
-  nav ul li a { padding: 10px 8px; font-size: 0.75rem; }
+  nav ul li a { padding: 12px 8px; font-size: 0.8rem; }
+  
+  /* 表をスマホで縦並びにする（読みやすさ重視） */
+  table th, table td { display: block; width: 100%; }
+  table th { border-bottom: none; padding-bottom: 5px; }
+
   section { padding: 40px 20px; }
-  .step-container { flex-direction: column; }
+  .step-container, .lunch-container, .contact-buttons { flex-direction: column; }
   .step-arrow { transform: rotate(90deg); margin: 10px 0; }
-  .lunch-container { flex-direction: column; }
-  .contact-buttons { flex-direction: column; }
   .btn { max-width: 100%; }
 }
 
