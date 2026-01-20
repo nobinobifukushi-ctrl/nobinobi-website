@@ -21,39 +21,40 @@ body {
   position: relative;
 }
 
-/* --- 背景イラスト（葉っぱ） --- */
-/* イラストを大きく、不透明度を 0.1 → 0.25 へ引き上げました */
-body::before {
-  content: "";
+/* --- 【修正】背景イラスト（おしゃれな葉っぱ） --- */
+.leaf-top-right {
   position: fixed;
-  top: -20px;
-  right: -20px;
-  width: 450px; 
-  height: 450px;
-  background: url('https://www.transparenttextures.com/patterns/leaf.png') no-repeat;
-  background-size: contain;
-  opacity: 0.25; 
+  top: 0;
+  right: 0;
+  width: 500px; /* サイズを大きく */
+  height: 600px;
+  /* 垂れ下がる葉っぱの透過画像 */
+  background: url('https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/leaf.svg') no-repeat;
+  background-position: top right;
+  background-size: 100%;
+  opacity: 0.05; /* 線画っぽく非常に薄く設定 */
   z-index: -1;
   pointer-events: none;
+  transform: rotate(-15deg) translate(50px, -50px);
 }
 
-/* 左下のイラストも 0.07 → 0.18 へ引き上げました */
+/* 左下にも別の葉っぱを配置 */
 body::after {
   content: "";
   position: fixed;
-  bottom: -30px;
-  left: -30px;
-  width: 400px;
-  height: 400px;
-  background: url('https://www.transparenttextures.com/patterns/leaf.png') no-repeat;
+  bottom: -50px;
+  left: -50px;
+  width: 350px;
+  height: 350px;
+  background: url('https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/leaf.svg') no-repeat;
   background-size: contain;
-  opacity: 0.18;
+  opacity: 0.05;
   z-index: -1;
   pointer-events: none;
-  transform: rotate(180deg);
+  transform: rotate(160deg);
 }
 
-/* --- ヘッダー（ロゴを左上に） --- */
+/* --- ヘッダー --- */
 header {
   background: white;
   padding: 40px 20px;
@@ -67,16 +68,22 @@ header {
   gap: 30px;
 }
 
+/* --- 【修正】ロゴエリア：背景に馴染ませる調整 --- */
 .logo-area {
   flex-shrink: 0;
+  position: relative;
+  /* ロゴの背後に柔らかい光を敷いて馴染ませる */
+  background: radial-gradient(circle, var(--soft-green) 0%, rgba(255,255,255,0) 70%);
+  padding: 20px;
+  border-radius: 50%;
 }
 
-/* ロゴのサイズを 120px → 180px に拡大しました */
 .site-logo {
   max-width: 180px; 
   height: auto;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.05));
+  /* 白背景で浮かないように微細な影を付与 */
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.03));
 }
 
 .title-area {
@@ -190,7 +197,7 @@ table th { text-align: left; background: var(--soft-green); width: 30%; border-r
 /* --- スマホ調整 --- */
 @media (max-width: 768px) {
   .header-container { flex-direction: column; text-align: center; gap: 15px; }
-  .site-logo { max-width: 130px; } /* スマホでも少し大きく調整 */
+  .site-logo { max-width: 130px; } 
   .title-area { text-align: center; }
   header h1 { font-size: 1.6rem; }
   section { padding: 40px 20px; }
