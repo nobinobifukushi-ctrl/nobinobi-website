@@ -19,6 +19,9 @@ body {
   position: relative;
 }
 
+/* PCでは改行を隠す */
+.sp-only { display: none; }
+
 /* --- 背景イラスト --- */
 body::before {
   content: ""; position: fixed; top: 0; right: 0; width: 500px; height: 600px;
@@ -112,17 +115,30 @@ table th { text-align: left; background: var(--soft-green); width: 30%; }
 
 /* --- スマホ最適化（最後に適用） --- */
 @media (max-width: 768px) {
+  .sp-only { display: block; } /* スマホの時だけ改行を有効にする */
+  
   header { padding: 40px 10px; }
   .header-container { flex-direction: column; text-align: center; gap: 20px; }
-  .outline-text { font-size: 1.8rem; }
+  
+  /* タイトルの文字サイズを少し調整して、2行に綺麗に収める */
+  .outline-text { font-size: 1.8rem; line-height: 1.3; }
+  
   .site-logo { max-width: 180px; }
   nav ul { flex-wrap: wrap; }
   nav ul li:not(:last-child)::after { display: none; }
   nav ul li a { padding: 12px 8px; font-size: 0.8rem; }
   
-  /* 表をスマホで縦並びにする */
-  table th, table td { display: block; width: 100%; }
-  table th { border-bottom: none; padding-bottom: 5px; }
+  /* 事業所概要の表はスマホで縦並び */
+  #about table th, #about table td { display: block; width: 100%; }
+  #about table th { border-bottom: none; padding-bottom: 5px; }
+
+  /* 比較表はPCと同じ「表形式」を維持（文字を少し小さくして収める） */
+  .comparison-table th, .comparison-table td { 
+    font-size: 0.75rem; 
+    padding: 10px 5px; 
+    word-break: break-all;
+  }
+  .comparison-table th { width: 25%; }
 
   /* スマホの時だけ各要素を縦に並べる */
   .step-container, .lunch-container, .contact-buttons { flex-direction: column; }
