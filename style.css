@@ -169,3 +169,18 @@ footer { text-align: center; padding: 40px; background: white; color: #888; }
     font-size: 0.95rem;
   }
 }
+
+/* --- 再追加：キャッチコピー（個性を大切に）を目立たせる --- */
+.title-area p {
+  font-size: 1.25rem; /* 少し大きく */
+  font-weight: bold; /* 太く */
+  color: #555;
+  margin-top: 8px;
+  letter-spacing: 0.05em; /* 文字の間隔をわずかに広げて読みやすく */
+}
+
+@media (max-width: 768px) {
+  .title-area p {
+    font-size: 1.05rem; /* スマホでも存在感を出す */
+  }
+}
