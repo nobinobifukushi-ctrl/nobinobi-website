@@ -184,3 +184,94 @@ footer { text-align: center; padding: 40px; background: white; color: #888; }
     font-size: 1.05rem; /* スマホでも存在感を出す */
   }
 }
+
+/* --- points.html 専用デザイン（ここから追加） --- */
+.points-page main {
+  max-width: 1100px;
+}
+
+/* セクションの見出し */
+.points-page .section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--main-green);
+  margin-bottom: 50px;
+  display: block;
+  position: relative;
+}
+
+.points-page .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 20%;
+  width: 60%;
+  height: 4px;
+  background: var(--accent-yellow);
+  border-radius: 2px;
+}
+
+/* カードのグリッド配置 */
+.points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* 紹介カード本体 */
+.points-card {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.points-card:hover {
+  transform: translateY(-10px);
+}
+
+/* カード内の画像 */
+.points-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* カード内のテキスト */
+.points-content {
+  padding: 25px;
+  flex-grow: 1;
+}
+
+.points-content h3 {
+  color: var(--main-green);
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 「魅力」セクションのカードに少しアクセント */
+.attraction-item {
+  border: 2px solid var(--soft-green);
+}
+
+/* スマホ表示の調整 */
+@media (max-width: 768px) {
+  .points-page .section-title {
+    font-size: 1.6rem;
+  }
+  .points-grid {
+    grid-template-columns: 1fr;
+  }
+  .points-img img {
+    height: 200px;
+  }
+}
