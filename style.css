@@ -86,7 +86,7 @@ h2::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60%;
 }
 
 .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-.work-card { background: var(--light-gray); padding: 30px; border-radius: 20px; border: 1px solid #eee; }
+.work-card { background: var(--light-gray); padding: 30px; border-radius: 20px; border: 1px solid #eee; overflow: hidden; }
 .work-tag { background: var(--main-green); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; }
 
 .wage-box { background: var(--soft-green); padding: 30px; border-radius: 20px; border-left: 8px solid var(--main-green); }
@@ -199,4 +199,19 @@ footer { text-align: center; padding: 40px; background: white; color: #888; }
   table th, table td { padding: 12px 10px; font-size: 0.9rem; }
   .btn { padding: 18px; font-size: 1.1rem; }
   section { padding: 35px 15px; border-radius: 20px; }
+}
+
+/* --- 今回の追加：作業カード内の写真表示用 --- */
+.work-card-img {
+  margin: -30px -30px 20px -30px;
+  overflow: hidden;
+}
+.work-card-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+.work-card h3 {
+  margin-top: 10px;
 }
