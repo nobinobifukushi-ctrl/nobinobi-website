@@ -89,7 +89,14 @@ h2::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60%;
 .work-card { background: var(--light-gray); padding: 30px; border-radius: 20px; border: 1px solid #eee; overflow: hidden; }
 .work-tag { background: var(--main-green); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; }
 
+/* 工賃の見せ方アップデート */
 .wage-box { background: var(--soft-green); padding: 30px; border-radius: 20px; border-left: 8px solid var(--main-green); }
+.wage-intro { margin-bottom: 20px; font-weight: bold; }
+.wage-main { text-align: center; background: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.wage-label { display: block; font-size: 0.9rem; color: var(--main-green); font-weight: bold; }
+.wage-price { font-size: 2.2rem; font-weight: bold; color: #e65100; }
+.wage-sub-text { font-size: 0.85rem; color: #777; margin-top: 5px; }
+
 .wage-list { list-style: none; padding: 0; margin: 20px 0; }
 .wage-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
 .wage-list li::before { content: "✔"; color: var(--main-green); position: absolute; left: 0; font-weight: bold; }
@@ -113,6 +120,14 @@ h2::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 60%;
 .lunch-img, .lunch-text { flex: 1; }
 .lunch-img img { width: 100%; border-radius: 20px; }
 .lunch-price { font-size: 1.8rem; font-weight: bold; color: #f57f17; }
+
+/* よくある質問（Q&A）のデザイン */
+.faq-container { display: flex; flex-direction: column; gap: 20px; }
+.faq-item { background: white; border-radius: 15px; padding: 20px; border: 1px solid #eee; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+.faq-question { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+.faq-icon { background: var(--main-green); color: white; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; flex-shrink: 0; }
+.faq-question h3 { margin: 0; font-size: 1.1rem; color: var(--text-color); }
+.faq-answer { padding-left: 47px; border-top: 1px dashed #eee; padding-top: 10px; font-size: 0.95rem; line-height: 1.6; }
 
 /* 表の基本スタイル */
 table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
@@ -146,6 +161,9 @@ table th { text-align: left; background: var(--soft-green); width: 30%; }
   /* 作業写真3枚をスマホで縦並びに */
   .work-photo-gallery { flex-direction: column; }
   .work-photo-item img { height: 180px; }
+  /* FAQスマホ調整 */
+  .faq-answer { padding-left: 0; }
+  .wage-price { font-size: 1.8rem; }
 }
 
 footer { text-align: center; padding: 40px; background: white; color: #888; }
