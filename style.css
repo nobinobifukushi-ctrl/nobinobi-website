@@ -315,3 +315,31 @@ footer { text-align: center; padding: 40px; background: white; color: #888; }
     .menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
     .menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 }
+
+/* --- ハンバーガーメニューの右寄せ＆文字追加（上書き設定） --- */
+@media (max-width: 768px) {
+    /* 1. 位置を右に寄せる */
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;    /* 右寄せ */
+        margin-right: 15px;   /* 右端の余白 */
+        padding: 10px;
+        min-height: 60px;     /* 文字が入るスペースを確保 */
+    }
+
+    /* 2. 三本線の間隔を少し詰める */
+    .menu-toggle .bar {
+        margin: 3px 0;
+    }
+
+    /* 3. 三本線の真下に「MENU」の文字を入れる */
+    .menu-toggle::after {
+        content: "MENU";
+        font-size: 10px;
+        color: var(--main-green);
+        font-weight: bold;
+        margin-top: 2px;
+        letter-spacing: 0.05em;
+        line-height: 1;
+    }
+}
