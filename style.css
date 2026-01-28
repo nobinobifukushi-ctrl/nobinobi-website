@@ -343,3 +343,30 @@ footer { text-align: center; padding: 40px; background: white; color: #888; }
         line-height: 1;
     }
 }
+
+/* --- ハンバーガーメニューを強制的に右寄せにする修正 --- */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: flex-end; /* ★親要素のnavの中で右側に寄せる指示 */
+        align-items: center;
+        min-height: 60px;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+        margin-left: auto !important; /* ★強制的に右へ */
+        margin-right: 20px !important;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* メニューリストが右に寄らないように横幅をリセット */
+    .nav-list {
+        position: absolute;
+        top: 60px; /* メニューバーの高さ分下げる */
+        left: 0;
+        width: 100%;
+    }
+}
