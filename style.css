@@ -242,3 +242,76 @@ footer { text-align: center; padding: 40px; background: white; color: #888; }
   .btn { padding: 18px; font-size: 1.1rem; }
   section { padding: 35px 15px; border-radius: 20px; }
 }
+
+/* --- ハンバーガーメニュー & メニュー2段調整 --- */
+
+/* パソコン・スマホ共通：メニューの基本設定 */
+.nav-list {
+    display: flex;
+    flex-wrap: wrap; /* 横に入り切らない場合に自動で折り返す（案Aの反映） */
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+/* パソコン時：ボタン同士の隙間を調整 */
+.nav-list li {
+    margin: 5px; 
+}
+
+/* スマホ用三本線ボタン（初期状態は隠す） */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--main-green);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* スマホ表示（画面幅768px以下）の設定 */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* 三本線を表示 */
+    }
+
+    .nav-list {
+        display: none; /* 初期状態ではメニューを隠す */
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        text-align: center;
+        border-top: 1px solid #eee;
+    }
+
+    /* 三本線が押された時（activeクラスがついた時）にメニューを表示 */
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-list li a {
+        padding: 15px;
+        border-bottom: 1px solid #f5f5f5;
+        font-size: 1rem !important; /* スマホで押しやすいサイズ */
+    }
+
+    /* 三本線を「×」に変えるアニメーション */
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+}
