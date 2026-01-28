@@ -243,58 +243,74 @@ footer { text-align: center; padding: 40px; background: white; color: #888; }
   section { padding: 35px 15px; border-radius: 20px; }
 }
 
-/* --- ハンバーガーメニュー & メニュー2段調整 --- */
+/* --- ナビゲーション最終調整：パソコンは中央・スマホは右寄せ --- */
 
-/* パソコン・スマホ共通：メニューの基本設定 */
+/* 1. パソコンとスマホ共通の基本設定 */
 .nav-list {
     display: flex;
-    flex-wrap: wrap; /* 横に入り切らない場合に自動で折り返す（案Aの反映） */
+    flex-wrap: wrap; 
     justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
-    transition: all 0.3s ease;
 }
 
-/* パソコン時：ボタン同士の隙間を調整 */
 .nav-list li {
     margin: 5px; 
 }
 
-/* スマホ用三本線ボタン（初期状態は隠す） */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 15px;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--main-green);
-    margin: 4px 0;
-    transition: 0.4s;
-}
-
-/* スマホ表示（画面幅768px以下）の設定 */
+/* 2. スマホ表示（画面幅768px以下）の時の切り替え */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* 三本線を表示 */
+    /* 親要素のnavを横いっぱいに広げて、中身を右寄せにする */
+    nav {
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center;
+        min-height: 65px;
+        width: 100% !important;
+        background: rgba(255,255,255,0.98);
     }
 
-    .nav-list {
-        display: none; /* 初期状態ではメニューを隠す */
+    /* 三本線ボタンを右端に配置し、MENU文字を追加 */
+    .menu-toggle {
+        display: flex !important;
         flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        margin-right: 20px; /* 右端の余白 */
+        margin-left: 0;
+        padding: 5px;
+    }
+
+    .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--main-green);
+        margin: 3px 0;
+        transition: 0.4s;
+    }
+
+    .menu-toggle::after {
+        content: "MENU";
+        font-size: 10px;
+        color: var(--main-green);
+        font-weight: bold;
+        margin-top: 2px;
+    }
+
+    /* 開いた時のメニュー（縦に並べて画面いっぱいに） */
+    .nav-list {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
         width: 100%;
         background: white;
-        text-align: center;
         border-top: 1px solid #eee;
+        z-index: 1000;
     }
 
-    /* 三本線が押された時（activeクラスがついた時）にメニューを表示 */
     .nav-list.active {
         display: flex;
     }
@@ -307,66 +323,14 @@ footer { text-align: center; padding: 40px; background: white; color: #888; }
     .nav-list li a {
         padding: 15px;
         border-bottom: 1px solid #f5f5f5;
-        font-size: 1rem !important; /* スマホで押しやすいサイズ */
+        font-size: 1rem !important;
+        display: block;
+        text-align: center;
     }
 
     /* 三本線を「×」に変えるアニメーション */
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 }
 
-/* --- ハンバーガーメニューの右寄せ＆文字追加（上書き設定） --- */
-@media (max-width: 768px) {
-    /* 1. 位置を右に寄せる */
-    .menu-toggle {
-        display: flex;
-        margin-left: auto;    /* 右寄せ */
-        margin-right: 15px;   /* 右端の余白 */
-        padding: 10px;
-        min-height: 60px;     /* 文字が入るスペースを確保 */
-    }
-
-    /* 2. 三本線の間隔を少し詰める */
-    .menu-toggle .bar {
-        margin: 3px 0;
-    }
-
-    /* 3. 三本線の真下に「MENU」の文字を入れる */
-    .menu-toggle::after {
-        content: "MENU";
-        font-size: 10px;
-        color: var(--main-green);
-        font-weight: bold;
-        margin-top: 2px;
-        letter-spacing: 0.05em;
-        line-height: 1;
-    }
-}
-
-/* --- ハンバーガーメニューを強制的に右寄せにする修正 --- */
-@media (max-width: 768px) {
-    nav {
-        display: flex;
-        justify-content: flex-end; /* ★親要素のnavの中で右側に寄せる指示 */
-        align-items: center;
-        min-height: 60px;
-        width: 100%;
-    }
-
-    .menu-toggle {
-        display: flex !important;
-        margin-left: auto !important; /* ★強制的に右へ */
-        margin-right: 20px !important;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* メニューリストが右に寄らないように横幅をリセット */
-    .nav-list {
-        position: absolute;
-        top: 60px; /* メニューバーの高さ分下げる */
-        left: 0;
-        width: 100%;
-    }
-}
